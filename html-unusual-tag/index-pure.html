@@ -1,0 +1,46 @@
+<!--
+ * @Author: GeekMzy
+ * @Date: 2023-04-12 15:19:06
+ * @FilePath: \words-code-demo\html-unusual-tag\index-pure.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .tag-item {
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .right {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tag-item">
+    <div class="left">
+      <img src="./assets/pets-3715733_1920.jpg" style="width:280px;height:186px;" usemap="#animal" alt="">
+      <map name="animal">
+        <area shape="cat1" coords="40,96,80,176" href="./assets/cat1.png" />
+        <area shape="dog1" coords="70,70,140,176" href="./assets/dog1.png" />
+        <area shape="dog2" coords="140,60,170,176" href="./assets/dog2.png" />
+        <area shape="cat2" coords="170,120,240,176" href="./assets/cat2.png" />
+      </map>
+    </div>
+    <div class="right"></div>
+  </div>
+</body>
+
+</html>
