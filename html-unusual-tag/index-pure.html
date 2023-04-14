@@ -15,7 +15,7 @@
     .tag-item {
       display: flex;
       justify-content: space-between;
-
+      margin-top: 40px
     }
 
     .left {
@@ -31,7 +31,7 @@
 <body>
   <div class="tag-item">
     <div class="left">
-      <img src="./assets/pets-3715733_1920.jpg" style="width:280px;height:186px;" usemap="#animal" alt="">
+      <img src="./assets/pets-area.png" style="width:280px;height:186px;" usemap="#animal" alt="">
       <map name="animal">
         <area shape="cat1" coords="40,96,80,176" href="./assets/cat1.png" />
         <area shape="dog1" coords="70,70,140,176" href="./assets/dog1.png" />
@@ -39,7 +39,23 @@
         <area shape="cat2" coords="170,120,240,176" href="./assets/cat2.png" />
       </map>
     </div>
-    <div class="right"></div>
+  </div>
+  <div class="tag-item">
+    <div class="left">
+      <div>
+        当前水温：<meter max="100" low="30" value="83" high="80">H</meter>
+      </div>
+      <div>
+        下载进度：<progress value="60" max="100"></progress>
+      </div>
+    </div>
+  </div>
+  <div class="tag-item">
+    <pre>
+       飞来山上千寻塔，闻说鸡鸣见日升。
+       不畏浮云遮望眼，只缘身在最高层。
+                                -- 《登高》 王安石     
+    </pre>
   </div>
 </body>
 

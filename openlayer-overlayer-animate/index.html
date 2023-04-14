@@ -1,0 +1,40 @@
+<!--
+ * @Author: GeekMzy
+ * @Date: 2023-04-14 14:22:38
+ * @FilePath: \words-code-demo\openlayer-overlayer-animate\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using OpenLayers with Vite</title>
+  <style>
+    #css_animation {
+      height: 15px;
+      width: 15px;
+      border-radius: 7.5px;
+      background: rgba(255, 0, 0, 0.9);
+
+      transform: scale(0);
+      animation: spread 3s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes spread {
+      to {
+        transform: scale(1.5);
+        background: rgba(0, 0, 0, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
