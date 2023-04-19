@@ -15,24 +15,17 @@ import { Fill, Stroke, Icon, Style, Text, Circle } from 'ol/style';
 
 import OSM from 'ol/source/OSM';
 
-const source = new VectorSource();
-
-const vector = new VectorLayer({
-	source: source,
-});
-
 const map = new Map({
 	target: 'map',
 	layers: [
 		new TileLayer({
 			source: new OSM(),
 		}),
-		vector,
 	],
 	view: new View({
 		center: [86.0625, 34.125],
-		projection: 'EPSG:4326',
-		zoom: 4,
+		projection: 'EPSG:4326', // 修改坐标系
+		zoom: 6,
 	}),
 });
 
@@ -40,6 +33,12 @@ map.on('click', (event) => {
 	console.log(event, 'click');
 });
 
+const source = new VectorSource(); // 创建一个数据源
+const vector = new VectorLayer({
+	// 创建一个图层并绑定数据源
+	source: source,
+});
+map.addLayer(vector); // 将图层添加进图层中
 const point = new Feature({
 	geometry: new Point([86.0625, 34.125]),
 	zIndex: 2,
@@ -58,14 +57,14 @@ const point = new Feature({
 	}),
 });
 
-source.addFeature(point);
+source.addFeature(point); // 将创建的点位添加到数据源中
 
-const elem = document.createElement('div');
-const parent = document.getElementById('overlay_container');
-parent.appendChild(elem);
-elem.setAttribute('class', 'css_animation');
-elem.style.pointerEvents = 'none'; // 添加此行代码
+const elem = document.createElement('div'); // 创建一个dom节点
+const parent = document.getElementById('overlay_container'); // 获取父节点的dom
+parent.appendChild(elem); // 将创建的dom节点添加到父节点中
+elem.setAttribute('class', 'css_animation'); // 给创建的dom节点添加样式
 const pointAnimateOverLay = new Overlay({
+	// 创建一个overlay 并绑定dom节点
 	element: elem,
 	positioning: 'center-center',
 	offset: [0, 0],
@@ -74,10 +73,6 @@ const pointAnimateOverLay = new Overlay({
 	zIndex: 1,
 });
 
-pointAnimateOverLay.setProperties({
-	pointEventTarget: true,
-});
+map.addOverlay(pointAnimateOverLay); // 将overlay添加到地图中
 
-map.addOverlay(pointAnimateOverLay);
-
-pointAnimateOverLay.setPosition([86.0625, 34.125]);
+pointAnimateOverLay.setPosition([86.0625, 34.125]); // 设置overlay的位置为点位的位置
